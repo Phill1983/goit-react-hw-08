@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateContact } from '../../redux/contacts/contactsOps';
+import { updateContact } from '../../redux/contacts/operations';
 import ConfirmModal from '../ConfirmModal/ConfirmModal';
 import css from './Contact.module.css';
 

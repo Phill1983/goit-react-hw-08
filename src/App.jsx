@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
 import { refreshUser } from './redux/auth/operations';
-import { fetchContacts } from './redux/contacts/contactsOps';
+import { fetchContacts } from './redux/contacts/operations';
 import { selectIsRefreshing, selectIsLoggedIn } from './redux/auth/selectors';
 
 import Layout from './components/Layout/Layout';

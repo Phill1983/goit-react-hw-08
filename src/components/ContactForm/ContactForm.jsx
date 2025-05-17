@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { addContact, fetchContacts } from '../../redux/contacts/contactsOps';
+import { addContact, fetchContacts } from '../../redux/contacts/operations';
 import ActionButton from '../ActionButton/ActionButton';
 import toast, { Toaster } from 'react-hot-toast';
 import css from './ContactForm.module.css';
