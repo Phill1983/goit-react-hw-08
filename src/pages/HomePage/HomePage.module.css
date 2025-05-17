@@ -1,0 +1,18 @@
+.wrapper {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 24px;
+  text-align: center;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #1f2937;
+}
+
+.text {
+  font-size: 18px;
+  color: #4b5563;
+}

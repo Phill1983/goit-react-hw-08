@@ -1,0 +1,28 @@
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.greeting {
+  font-size: 16px;
+  color: #374151;
+}
+
+.username {
+  font-weight: 600;
+}
+
+.button {
+  padding: 6px 12px;
+  background-color: #ffa047;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.button:hover {
+  background-color: #dc2626;
+}

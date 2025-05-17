@@ -1,0 +1,6 @@
+.error {
+  text-align: center;
+  color: #ef4444; /* аналог text-red-500 */
+  font-weight: 600;
+  padding: 16px 0;
+}

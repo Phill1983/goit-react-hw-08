@@ -1,0 +1,48 @@
+.button {
+  padding: 12px;
+  font-size: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  color: white;
+  /* min-width: 120px; */
+}
+
+/* Варіанти */
+.add {
+  background-color: #10b981;
+  min-width: 120px;
+}
+.add:hover {
+  background-color: #059669;
+}
+
+.refresh {
+  background-color: #3b82f6;
+}
+.refresh:hover {
+  background-color: #2563eb;
+}
+
+/* .delete {
+  background-color: #ef4444;
+} */
+.delete:hover {
+  background-color: #dc2626;
+}
+
+.default {
+  background-color: #6b7280;
+}
+.default:hover {
+  background-color: #4b5563;
+}
+
+.delete {
+  background-color: #ffa047;
+  width: 80px;
+}
+.delete:hover {
+  background-color: #dc2626;
+}
