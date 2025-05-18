@@ -15,7 +15,7 @@ const authSlice = createSlice({
     builder
       .addCase(register.fulfilled, (state, action) => {
   state.user = action.payload.user;
-  state.token = action.payload.token.replace(/^"|"$/g, ''); // 🧼 знімаємо лапки
+  state.token = action.payload.token.replace(/^"|"$/g, ''); 
   state.isLoggedIn = true;
 })
 .addCase(login.fulfilled, (state, action) => {
