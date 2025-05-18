@@ -1,48 +1,50 @@
 .button {
-  padding: 12px;
-  font-size: 12px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
-  color: white;
-  /* min-width: 120px; */
+  color: #fff;
+  min-width: auto;
+  display: inline-block;
 }
 
-/* Варіанти */
+/* ВАРІАНТИ */
+
 .add {
-  background-color: #10b981;
-  min-width: 120px;
+  background-color: #10b981; /* зелена */
 }
 .add:hover {
   background-color: #059669;
 }
 
 .refresh {
-  background-color: #3b82f6;
+  background-color: #3b82f6; /* синя */
 }
 .refresh:hover {
   background-color: #2563eb;
 }
 
-/* .delete {
-  background-color: #ef4444;
-} */
-.delete:hover {
-  background-color: #dc2626;
-}
-
 .default {
-  background-color: #6b7280;
+  background-color: #6b7280; /* сіра */
 }
 .default:hover {
   background-color: #4b5563;
 }
 
 .delete {
-  background-color: #ffa047;
-  width: 80px;
+  background-color: #ef4444; /* червона */
 }
 .delete:hover {
   background-color: #dc2626;
+}
+
+/* МОБІЛЬНА АДАПТАЦІЯ */
+@media (max-width: 480px) {
+  .button {
+    width: 100%;
+    margin-bottom: 8px;
+  }
 }

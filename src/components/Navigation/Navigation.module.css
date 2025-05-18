@@ -1,23 +1,32 @@
 .nav {
   display: flex;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
+/* Посилання */
 .link {
   padding: 8px 16px;
-  background-color: #3b82f6;
+  background-color: #3b82f6; /* синя кнопка */
   color: white;
   border: none;
   border-radius: 6px;
   text-decoration: none;
   font-weight: 500;
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
 }
 
 .link:hover {
   background-color: #2563eb;
+  transform: translateY(-1px);
 }
 
 .link.active {
   background-color: #1d4ed8;
+}
+
+@media (max-width: 480px) {
+  .nav {
+    justify-content: center;
+  }
 }

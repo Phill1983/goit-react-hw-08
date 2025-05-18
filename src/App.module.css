@@ -5,7 +5,7 @@
   font-family: Arial, sans-serif;
   background-color: #ffffff;
   min-height: 100vh;
-  color: oklch(0.57 0.04 229.04);
+  color: #1f2937;
 }
 
 .title {
@@ -13,10 +13,4 @@
   font-weight: bold;
   margin-bottom: 24px;
   text-align: center;
-}
-
-* {
-  opacity: 1 !important;
-  filter: none !important;
-  pointer-events: all !important;
 }

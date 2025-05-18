@@ -9,43 +9,69 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  padding: 16px; /* для маленьких екранів */
 }
 
 .modal {
-  background-color: #fff;
-  padding: 24px;
+  background-color: #ffffff;
+  padding: 24px 20px;
   border-radius: 8px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   text-align: center;
-  max-width: 300px;
-  width: 90%;
+  max-width: 360px;
+  width: 100%;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .message {
   font-size: 18px;
-  margin-bottom: 16px;
+  font-weight: 500;
+  color: #1f2937;
+  margin-bottom: 20px;
 }
 
 .actions {
   display: flex;
   justify-content: space-between;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
+/* Кнопка "Так" */
 .confirm {
   background-color: #ef4444;
   color: white;
   border: none;
-  padding: 8px 16px;
+  padding: 10px 20px;
   border-radius: 6px;
   cursor: pointer;
+  flex: 1;
+}
+.confirm:hover {
+  background-color: #dc2626;
 }
 
+/* Кнопка "Скасувати" */
 .cancel {
   background-color: #e5e7eb;
   color: #374151;
   border: none;
-  padding: 8px 16px;
+  padding: 10px 20px;
   border-radius: 6px;
   cursor: pointer;
+  flex: 1;
+}
+.cancel:hover {
+  background-color: #d1d5db;
 }

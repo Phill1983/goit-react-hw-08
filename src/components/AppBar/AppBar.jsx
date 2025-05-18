@@ -10,9 +10,8 @@ const AppBar = () => {
 
   return (
     <header className={css.header}>
-      
-      <div className={css.inner}>
-        <Navigation /><h2 className={css.heading}>Your Contacts</h2>
+      <div className={css.navBar}>
+        <Navigation />
         {isLoggedIn ? <UserMenu /> : <AuthNav />}
       </div>
     </header>
@@ -20,4 +19,5 @@ const AppBar = () => {
 };
 
 export default AppBar;
+
 

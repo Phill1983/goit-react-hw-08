@@ -10,9 +10,13 @@ const ContactsPage = () => {
       {/* <h2 className={css.heading}>Your Contacts</h2> */}
 
       <div className={css.formRow}>
-        <ContactForm />
-        <SearchBox />
-      </div>
+  <div className={css.form}>
+    <ContactForm />
+  </div>
+  <div className={css.form}>
+    <SearchBox />
+  </div>
+</div>
 
       <ContactList />
     </div>

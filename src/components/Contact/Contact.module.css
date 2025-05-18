@@ -1,125 +1,110 @@
-.contact {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #000000bc;
-  border-radius: 8px;
-  padding: 4px 4px;
-  /* width: 250px; */
-  background-color: white;
-}
 .contactItem {
-  min-width: 280px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 16px;
-  background-color: white;
+  background-color: #ecf6ff;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.2s ease-in-out;
-  margin-bottom: 8px;
-  font-weight: bold;
-  font-size: small;
-  background-color: #ecf6ff;
+  margin-bottom: 12px;
+  font-weight: 500;
+  font-size: 14px;
+  width: 100%;
+  gap: 16px;
 }
 
 .contactItem:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0;
-  list-style: disc;
 }
 
 .info {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  margin: 0;
+  flex: 1;
 }
 
 .contactName {
-  font-weight: bold;
   display: flex;
   align-items: center;
   gap: 8px;
-  /* margin: 5px; */
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .contactNumber {
   display: flex;
   align-items: center;
   gap: 8px;
-  /* margin: 5px; */
-  font-weight: 200;
-}
-
-.deleteButton {
-  width: fit-content;
-  padding: 8px 16px;
-  border: 1px solid #ccc;
-  background-color: #f3f3f3;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.button:hover {
-  background-color: #e0e0e0;
-}
-
-.deleteButton:hover {
-  background-color: #dc2626;
-}
-.input {
-  display: flex;
-  flex-direction: column;
-  margin: 8px;
-  padding: 6px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  margin-bottom: 8px;
+  font-weight: 400;
   font-size: 14px;
+  color: #374151;
 }
 
 .buttons {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: 8px;
+  min-width: 100px;
 }
 
 .editButton,
 .saveButton,
 .deleteButton {
-  padding: 6px 12px;
+  padding: 8px 14px;
   border-radius: 6px;
   border: none;
   cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background-color 0.2s ease-in-out;
 }
 
-.editButton {
-  background-color: #10b981;
-  color: white;
-}
-
-.editButton:hover {
-  background-color: #0c9165;
-}
+/* Зелена — редагувати/зберегти */
+.editButton,
 .saveButton {
   background-color: #10b981;
   color: white;
 }
-
-.deleteButton {
-  background-color: #ffa047;
-  color: white;
+.editButton:hover,
+.saveButton:hover {
+  background-color: #0c9165;
 }
 
-@media (max-width: 600px) {
+/* Помаранчева — видалити */
+.deleteButton {
+  background-color: #ef4444;
+  color: white;
+}
+.deleteButton:hover {
+  background-color: #dc2626;
+}
+
+/* Інпут при редагуванні */
+.input {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+}
+
+/* 📱 Адаптація */
+@media (max-width: 768px) {
   .contactItem {
-    min-width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .input {
+    margin-top: 8px;
   }
 }
