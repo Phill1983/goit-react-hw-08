@@ -1,48 +1,71 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { login } from '../../redux/auth/operations';
+import { login } from '@/redux/auth/operations';
+import { useFormik } from 'formik';
+import { Link } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 import css from './LoginForm.module.css';
 
-const LoginForm = () => {
+export default function LoginForm() {
   const dispatch = useDispatch();
 
-  const handleSubmit = (values, actions) => {
-    dispatch(login(values));
-    actions.resetForm();
-  };
-
-  const validationSchema = Yup.object({
-    email: Yup.string().email('Invalid email').required('Required'),
-    password: Yup.string().min(6, 'Min 6 characters').required('Required'),
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    onSubmit: async (values, { resetForm }) => {
+      try {
+        await dispatch(login(values)).unwrap();
+        toast.success('Login successful');
+        resetForm();
+      } catch (_) {
+        toast.custom(t => (
+          <div className={css.toastBox}>
+            <p className={css.toastTitle}>Wrong email or password </p>
+            <p className={css.toastText}>
+              Don&apos;t have an account?{' '}
+              <Link to="/register" onClick={() => toast.dismiss(t.id)} className={css.toastLink}>
+                Registrate now
+              </Link>
+            </p>
+          </div>
+        ));
+      }
+    },
   });
 
   return (
-    <Formik
-      initialValues={{ email: '', password: '' }}
-      validationSchema={validationSchema}
-      onSubmit={handleSubmit}
-    >
-      <Form className={css.form}>
-        <label className={css.label}>
-          Email
-          <Field type="email" name="email" autoComplete="email" className={css.input} />
-          <ErrorMessage name="email" component="div" className={css.error} />
-        </label>
+    <form onSubmit={formik.handleSubmit} className={css.form}>
+      <Toaster position="top-center" />
+      
+      <label className={css.label}>
+        Email
+        <input
+          type="email"
+          name="email"
+          required
+          value={formik.values.email}
+          onChange={formik.handleChange}
+          className={css.input}
+        />
+      </label>
 
-        <label className={css.label}>
-          Password
-          <Field type="password" name="password" autoComplete="current-password" className={css.input} />
-          <ErrorMessage name="password" component="div" className={css.error} />
-        </label>
+      <label className={css.label}>
+        Password
+        <input
+          type="password"
+          name="password"
+          required
+          value={formik.values.password}
+          onChange={formik.handleChange}
+          className={css.input}
+        />
+      </label>
 
-        <button type="submit" className={css.button}>
-          Login
-        </button>
-      </Form>
-    </Formik>
+      <button type="submit" className={css.button}>
+        Login
+      </button>
+    </form>
   );
-};
-
-export default LoginForm;
+}
 

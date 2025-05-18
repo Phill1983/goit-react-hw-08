@@ -35,17 +35,17 @@ export default function ContactForm() {
     dispatch(addContact({ name, number }))
       .unwrap()
       .then(() => {
-        toast.success('Contact added ✅');
+        toast.success('Contact added ');
         resetForm();
       })
-      .catch(() => toast.error('Failed to add contact ❌'));
+      .catch(() => toast.error('Failed to add contact '));
   };
 
   const handleRefresh = () => {
     dispatch(fetchContacts())
       .unwrap()
-      .then(() => toast.success('Contacts refreshed ✅'))
-      .catch(() => toast.error('Failed to refresh contacts ❌'));
+      .then(() => toast.success('Contacts refreshed '))
+      .catch(() => toast.error('Failed to refresh contacts '));
   };
 
   return (
