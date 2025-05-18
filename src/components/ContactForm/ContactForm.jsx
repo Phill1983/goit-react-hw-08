@@ -10,7 +10,7 @@ export default function ContactForm() {
   const [name, setName] = useState(() => localStorage.getItem('contactName') || '');
   const [number, setNumber] = useState(() => localStorage.getItem('contactNumber') || '');
 
-  // Save fields in localStorage
+
   useEffect(() => {
     localStorage.setItem('contactName', name);
   }, [name]);
@@ -49,8 +49,13 @@ export default function ContactForm() {
   };
 
   return (
-    <div className={css.form}>
-      <Toaster position="top-center" />
+    <form
+    className={css.form}
+    onSubmit={(e) => {
+      e.preventDefault();
+      handleAdd();
+    }}
+  >
       <h2 className={css.heading}>Your Contacts</h2>
 
       <div className={css.field}>
@@ -76,9 +81,9 @@ export default function ContactForm() {
       </div>
 
       <div className={css.buttons}>
-        <ActionButton label="Add Contact" variant="add" onClick={handleAdd} />
-        <ActionButton label="Refresh Contacts" variant="refresh" onClick={handleRefresh} />
+        <ActionButton label="Add Contact" variant="add" fullWidth />
+        <ActionButton label="Refresh Contacts" variant="refresh" onClick={handleRefresh} fullWidth />
       </div>
-    </div>
+    </form>
   );
 }

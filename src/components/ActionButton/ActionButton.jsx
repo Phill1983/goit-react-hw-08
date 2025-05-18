@@ -1,14 +1,15 @@
-import css from './ActionButton.module.css';
+import styles from './ActionButton.module.css';
 
-export default function ActionButton({ label, onClick, variant = 'default' }) {
+export default function ActionButton({ label, variant = 'default', onClick, fullWidth = false }) {
+  const classNames = [
+    styles.button,
+    styles[variant],
+    fullWidth ? styles.full : '',
+  ].join(' ');
+
   return (
-    <button
-      onClick={onClick}
-      className={`${css.button} ${css[variant]}`}
-      type="button"
-    >
+    <button className={classNames} onClick={onClick}>
       {label}
     </button>
   );
 }
-

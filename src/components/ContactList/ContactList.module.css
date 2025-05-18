@@ -11,7 +11,7 @@
 .input {
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 4px;
   width: 100%;
   font-size: 14px;
 }
@@ -22,4 +22,15 @@
   font-weight: 500;
   color: #4b5563;
   margin-top: 24px;
+}
+.sectionLabel {
+  width: 100%;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 12px;
+  color: #6b7280;
+  background-color: #f3f4f6;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
 }

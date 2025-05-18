@@ -3,7 +3,7 @@
   font-size: 14px;
   font-weight: 500;
   border: none;
-  border-radius: 6px;
+  border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
   color: #fff;
@@ -11,31 +11,32 @@
   display: inline-block;
 }
 
-/* ВАРІАНТИ */
-
+.full {
+  flex: 1;
+}
 .add {
-  background-color: #10b981; /* зелена */
+  background-color: #10b981;
 }
 .add:hover {
   background-color: #059669;
 }
 
 .refresh {
-  background-color: #3b82f6; /* синя */
+  background-color: #3b82f6;
 }
 .refresh:hover {
   background-color: #2563eb;
 }
 
 .default {
-  background-color: #6b7280; /* сіра */
+  background-color: #6b7280;
 }
 .default:hover {
   background-color: #4b5563;
 }
 
 .delete {
-  background-color: #ef4444; /* червона */
+  background-color: #09724f;
 }
 .delete:hover {
   background-color: #dc2626;
