@@ -4,7 +4,12 @@ import { useEffect } from 'react';
 
 import { refreshUser } from './redux/auth/operations';
 import { fetchContacts } from './redux/contacts/operations';
-import { selectIsRefreshing, selectIsLoggedIn } from './redux/auth/selectors';
+
+import {
+  selectIsRefreshing,
+  selectIsLoggedIn,
+  selectToken,
+} from './redux/auth/selectors';
 
 import Layout from './components/Layout/Layout';
 import PrivateRoute from './routes/PrivateRoute';
@@ -18,44 +23,59 @@ import FullPageLoader from './components/FullPageLoader/FullPageLoader';
 
 const App = () => {
   const dispatch = useDispatch();
+
+  const token = useSelector(selectToken); 
   const isRefreshing = useSelector(selectIsRefreshing);
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
-  // Оновлення користувача при першому запуску
+  // Оновлення користувача лише якщо токен є
   useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
+    if (token) {
+      dispatch(refreshUser());
+    }
+  }, [dispatch, token]);
 
-  // Після успішного оновлення авторизації — отримуємо контакти
+  // Завантаження контактів після підтвердження логіну
   useEffect(() => {
     if (isLoggedIn && !isRefreshing) {
       dispatch(fetchContacts());
     }
   }, [dispatch, isLoggedIn, isRefreshing]);
 
-  return isRefreshing ? (
-    <FullPageLoader />
-    
-  ) : (
+  // Loader під час refreshUser
+  if (isRefreshing) {
+    return <FullPageLoader />;
+  }
+
+  return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route
           path="/register"
           element={
-            <RestrictedRoute redirectTo="/contacts" component={<RegisterPage />} />
+            <RestrictedRoute
+              redirectTo="/contacts"
+              component={<RegisterPage />}
+            />
           }
         />
         <Route
           path="/login"
           element={
-            <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
+            <RestrictedRoute
+              redirectTo="/contacts"
+              component={<LoginPage />}
+            />
           }
         />
         <Route
           path="/contacts"
           element={
-            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+            <PrivateRoute
+              redirectTo="/login"
+              component={<ContactsPage />}
+            />
           }
         />
         <Route path="*" element={<HomePage />} />
@@ -65,4 +85,3 @@ const App = () => {
 };
 
 export default App;
-
